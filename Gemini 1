@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startups de Innovación Minera</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e6ffe6; /* Un verde muy claro para el fondo */
+            color: #1A1A1A;
+            scroll-behavior: smooth;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #10B981, #047857); /* Tonos de verde para el degradado del texto */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-header {
+            background: linear-gradient(to right, #10B981, #047857); /* Degradado de verde para el encabezado de sección */
+            padding: 1.5rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            color: white;
+        }
+        .section-content {
+            background-color: white;
+            padding: 1.5rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .nav-button.active {
+            background-color: #065F46; /* Un tono de verde más oscuro para el botón activo */
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-white shadow-md p-8 text-center sticky top-0 z-10 relative">
+        <h1 class="text-4xl md:text-5xl font-black uppercase gradient-text">
+            Innovadores Mineros
+        </h1>
+        <p class="mt-2 text-lg md:text-xl max-w-2xl mx-auto text-gray-700">
+            Descubre las startups que están transformando la industria minera.
+        </p>
+        <nav class="mt-6 flex flex-wrap justify-center gap-4">
+            <button class="nav-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200 active" data-filter="all">Todas</button>
+            <button class="nav-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-filter="exploration">Exploración</button>
+            <button class="nav-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-filter="extraction">Extracción</button>
+            <button class="nav-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-filter="processing">Procesamiento</button>
+            <button class="nav-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-filter="sustainability">Sostenibilidad y Monitoreo</button>
+        </nav>
+        <img src="data:image/jpeg;base64,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" alt="Logo de Ferreycorp" class="absolute top-4 right-8 h-12 w-auto object-contain" onerror="this.onerror=null;this.src='https://placehold.co/150x50/CCCCCC/000000?text=Logo';">
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8">
+
+        <section id="endolith" class="startup-section my-16" data-process="extraction,processing,sustainability">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                <div class="section-header">
+                    <h2 class="text-3xl font-bold">Endolith Mining</h2>
+                </div>
+                <div class="section-content">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Descripción:</p>
+                    <p id="endolith-description" class="text-gray-700 mb-4">Endolith está revolucionando la industria minera utilizando microbios para aumentar las tasas de recuperación de cobre y litio, minimizando el impacto ambiental. La empresa cultiva comunidades microbianas personalizadas y las aplica donde se necesitan para optimizar los procesos de recuperación.</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Tecnología y Solución:</p>
+                    <p id="endolith-technology" class="text-gray-700">Endolith utiliza una plataforma nativa en la nube que monitorea y ajusta continuamente la actividad microbiana en tiempo real para mejorar la recuperación de minerales críticos. Analizan la composición genómica del mineral y las operaciones de lixiviación en pilas para adaptar soluciones microbianas. Sus técnicas asistidas por microbios optimizan la extracción de litio de arcillas y salmueras, y eliminan selectivamente los carbonatos antes de la lixiviación, reduciendo el uso de ácido sulfúrico y mejorando la eficiencia diaria del procesamiento.</p>
+                    <div class="mt-6 border-t pt-4 border-gray-200">
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#10B981] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="due-diligence" data-startup-id="endolith">✨ Generar Preguntas de Diligencia</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#047857] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="trends" data-startup-id="endolith">✨ Identificar Tendencias</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-action="swot" data-startup-id="endolith">✨ Generar Análisis FODA</button>
+                        <div id="endolith-llm-output" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+                            <p class="text-sm text-gray-500 italic">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="astroforge" class="startup-section my-16" data-process="exploration,extraction,processing">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                <div class="section-header">
+                    <h2 class="text-3xl font-bold">AstroForge</h2>
+                </div>
+                <div class="section-content">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Descripción:</p>
+                    <p id="astroforge-description" class="text-gray-700 mb-4">AstroForge está construyendo naves espaciales de bajo costo y replicables capaces de rastrear y extraer asteroides en el espacio profundo. Su segunda misión, Vestri, será el primer aterrizaje privado en un cuerpo fuera del pozo de gravedad planetaria.</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Tecnología y Solución:</p>
+                    <p id="astroforge-technology" class="text-gray-700">AstroForge construye naves espaciales de bajo costo capaces de rastrear y extraer asteroides en el espacio profundo. También están trabajando en la refinación de materiales en el espacio, con el objetivo de realizar el primer aterrizaje privado en un cuerpo fuera del pozo de gravedad planetaria con su misión Vestri.</p>
+                    <div class="mt-6 border-t pt-4 border-gray-200">
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#10B981] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="due-diligence" data-startup-id="astroforge">✨ Generar Preguntas de Diligencia</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#047857] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="trends" data-startup-id="astroforge">✨ Identificar Tendencias</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-action="swot" data-startup-id="astroforge">✨ Generar Análisis FODA</button>
+                        <div id="astroforge-llm-output" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+                            <p class="text-sm text-gray-500 italic">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impossiblemetals" class="startup-section my-16" data-process="extraction,processing,sustainability">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                <div class="section-header">
+                    <h2 class="text-3xl font-bold">Impossible Metals</h2>
+                </div>
+                <div class="section-content">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Descripción:</p>
+                    <p id="impossiblemetals-description" class="text-gray-700 mb-4">Impossible Metals es una startup enfocada en la minería y recolección sostenible en aguas profundas. Su tecnología tiene como objetivo recolectar recursos del lecho marino sin dañar el hábitat.</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Tecnología y Solución:</p>
+                    <p id="impossiblemetals-technology" class="text-gray-700">Impossible Metals está desarrollando una tecnología de recolección en el lecho marino que permite la extracción de minerales sin destruir el hábitat. Han desarrollado un Sistema de Recolección Robótico y han probado las versiones Eureka I, Eureka II y Eureka III, demostrando que sus costos son un tercio menores en comparación con la competencia.</p>
+                    <div class="mt-6 border-t pt-4 border-gray-200">
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#10B981] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="due-diligence" data-startup-id="impossiblemetals">✨ Generar Preguntas de Diligencia</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#047857] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="trends" data-startup-id="impossiblemetals">✨ Identificar Tendencias</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-action="swot" data-startup-id="impossiblemetals">✨ Generar Análisis FODA</button>
+                        <div id="impossiblemetals-llm-output" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+                            <p class="text-sm text-gray-500 italic">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="espersatellites" class="startup-section my-16" data-process="exploration,sustainability">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                <div class="section-header">
+                    <h2 class="text-3xl font-bold">Esper Satellites</h2>
+                </div>
+                <div class="section-content">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Descripción:</p>
+                    <p id="espersatellites-description" class="text-gray-700 mb-4">Esper está lanzando una versátil constelación de satélites hiperespectrales, capturando imágenes con cientos de colores de luz no visible para decodificar la superficie del planeta a escala global. Su costo de imágenes es de $1.5 por kilómetro cuadrado.</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Tecnología y Solución:</p>
+                    <p id="espersatellites-technology" class="text-gray-700">Los satélites hiperespectrales de Esper capturan imágenes con cientos de colores de luz no visible, decodificando la superficie del planeta a escala global y descomponiéndola en sus componentes químicos. Los satélites tienen 144 bandas con resolución estándar de la industria y están ajustados para aplicaciones con características difíciles de detectar y espectralmente diversas. Es una de las pocas constelaciones de satélites que lleva sensores avanzados de infrarrojo de onda corta (SWIR). Las imágenes satelitales de Esper están acelerando la exploración y extracción de minerales críticos para la transición de la humanidad hacia la electrificación.</p>
+                    <div class="mt-6 border-t pt-4 border-gray-200">
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#10B981] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="due-diligence" data-startup-id="espersatellites">✨ Generar Preguntas de Diligencia</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#047857] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="trends" data-startup-id="espersatellites">✨ Identificar Tendencias</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-action="swot" data-startup-id="espersatellites">✨ Generar Análisis FODA</button>
+                        <div id="espersatellites-llm-output" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+                            <p class="text-sm text-gray-500 italic">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="muonvision" class="startup-section my-16" data-process="exploration,processing,sustainability">
+            <div class="max-w-4xl mx-auto rounded-lg shadow-xl overflow-hidden">
+                <div class="section-header">
+                    <h2 class="text-3xl font-bold">Muon Vision</h2>
+                </div>
+                <div class="section-content">
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Descripción:</p>
+                    <p id="muonvision-description" class="text-gray-700 mb-4">Muon Vision es una empresa de soluciones fundada por un pionero de la física y dos ingenieros, que busca modernizar la industria minera con un servicio transformador, escalable y no invasivo basado en datos duros. Monitorean fluidos en las profundidades de montañas, estanques de relaves y pilas de lixiviación, permitiendo una mejor gestión de activos.</p>
+                    <p class="text-lg font-semibold text-gray-800 mb-4">Tecnología y Solución:</p>
+                    <p id="muonvision-technology" class="text-gray-700">La tecnología de Muon Vision monitorea fluidos en las profundidades de montañas, estanques de relaves y pilas de lixiviación, permitiendo la gestión de activos al proporcionar información sobre los procesos internos. Sus mapas de alta precisión rastrean el movimiento de fluidos, facilitando la construcción de modelos mejorados de activos de alto valor en tiempo casi real. Esto lleva a una digitalización a gran escala, mejora continua de procesos y geomodelos realistas detallados. La plataforma de datos no solo conserva tiempo, energía y agua, sino que también identifica condiciones inseguras, promoviendo prácticas mineras más seguras y sostenibles.</p>
+                    <div class="mt-6 border-t pt-4 border-gray-200">
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#10B981] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="due-diligence" data-startup-id="muonvision">✨ Generar Preguntas de Diligencia</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#047857] text-white hover:bg-opacity-90 transition-colors duration-200 mr-2" data-action="trends" data-startup-id="muonvision">✨ Identificar Tendencias</button>
+                        <button class="llm-button px-4 py-2 rounded-full bg-[#059669] text-white hover:bg-opacity-90 transition-colors duration-200" data-action="swot" data-startup-id="muonvision">✨ Generar Análisis FODA</button>
+                        <div id="muonvision-llm-output" class="mt-4 p-4 bg-gray-50 rounded-lg hidden">
+                            <p class="text-sm text-gray-500 italic">Cargando...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center p-6 mt-16">
+        <p>Página de startups generada por IA. Junio 2025.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const llmButtons = document.querySelectorAll('.llm-button');
+            const navButtons = document.querySelectorAll('.nav-button');
+            const startupSections = document.querySelectorAll('.startup-section');
+
+            function filterStartups(filterType) {
+                startupSections.forEach(section => {
+                    const processes = section.dataset.process.split(',');
+                    if (filterType === 'all' || processes.includes(filterType)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+
+            navButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    navButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    filterStartups(this.dataset.filter);
+                });
+            });
+
+            // Initial filter to show all startups
+            filterStartups('all');
+
+            llmButtons.forEach(button => {
+                button.addEventListener('click', async function() {
+                    const action = this.dataset.action;
+                    const startupId = this.dataset.startupId;
+                    const outputDiv = document.getElementById(`${startupId}-llm-output`);
+                    const descriptionElement = document.getElementById(`${startupId}-description`);
+                    const technologyElement = document.getElementById(`${startupId}-technology`);
+
+                    outputDiv.classList.remove('hidden');
+                    outputDiv.innerHTML = '<p class="text-sm text-gray-500 italic">Cargando...</p>';
+
+                    let prompt = '';
+                    if (action === 'due-diligence') {
+                        const description = descriptionElement ? descriptionElement.textContent : '';
+                        prompt = `Basado en la siguiente descripción de la startup minera, genera 3 a 5 preguntas clave de diligencia debida que un inversor debería considerar. Formato: lista numerada. La descripción es: ${description}`;
+                    } else if (action === 'trends') {
+                        const technology = technologyElement ? technologyElement.textContent : '';
+                        prompt = `Basado en la siguiente descripción de la tecnología y solución de la startup minera, identifica 1 o 2 tendencias tecnológicas clave o clasificaciones de mercado relevantes. Formato: lista con guiones. La descripción es: ${technology}`;
+                    } else if (action === 'swot') {
+                        const description = descriptionElement ? descriptionElement.textContent : '';
+                        const technology = technologyElement ? technologyElement.textContent : '';
+                        prompt = `Basado en la siguiente descripción de la startup minera y su tecnología, genera un análisis FODA (Fortalezas, Oportunidades, Debilidades, Amenazas) conciso. Utiliza un formato de lista con viñetas para cada sección. La descripción de la startup es: ${description}. La tecnología y solución es: ${technology}`;
+                    }
+
+                    if (!prompt) {
+                        outputDiv.innerHTML = '<p class="text-red-500">Error: No se pudo generar el prompt.</p>';
+                        return;
+                    }
+
+                    try {
+                        let chatHistory = [];
+                        chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                        const payload = { contents: chatHistory };
+                        const apiKey = "";
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                        const response = await fetch(apiUrl, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify(payload)
+                                });
+                        const result = await response.json();
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            const text = result.candidates[0].content.parts[0].text;
+                            outputDiv.innerHTML = `<div class="text-gray-700">${text.replace(/\n/g, '<br>')}</div>`;
+                        } else {
+                            outputDiv.innerHTML = '<p class="text-red-500">Error al obtener respuesta de la IA. Inténtalo de nuevo.</p>';
+                            console.error('Unexpected API response structure:', result);
+                        }
+                    } catch (error) {
+                        outputDiv.innerHTML = '<p class="text-red-500">Error de conexión. Asegúrate de que la API está accesible.</p>';
+                        console.error('Error calling Gemini API:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
